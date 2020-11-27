@@ -1,4 +1,7 @@
-import random
-x=sorted(random.sample(range(1,50), 6))
+import unittest
+from lotto import *
 
-print(x)
+class TestLottoTestCase(unittest.TestCase):
+    def test_calc(self):
+        lt = Lotto()
+        assert lt.calc() == True, "Must return True"
