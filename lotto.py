@@ -60,7 +60,11 @@ class Lotto:
         master.geometry("550x400")
         master.config(bg="#f9db17")
 
+<<<<<<< HEAD
         #Generate 6 random non-repeating numbers
+=======
+        #generate 6 random non-repeating numbers
+>>>>>>> Minor changes
         self.win_nums = sorted(random.sample(range(1,50), 6))
         print(self.win_nums)
 
@@ -73,7 +77,10 @@ class Lotto:
         #Creating Tkinter widgets (only Label, Entry, and Button were used)
         user_input_label = Label(master, text="Enter your lucky numbers here:           -            -           -           -           -", bg="#f9db17", fg="#221d1f", font="Helvetica 12 bold")
         self.result_label = Label(master, bg="#f9db17", fg="#221d1f", font="Helvetica 15 bold italic")
+<<<<<<< HEAD
         self.main_date_label = Label(master, bg="#f9db17", fg="#221d1f", font="Helvetica 13 bold")
+=======
+>>>>>>> Minor changes
         self.num_1 = Entry(master, width=3)
         self.num_2 = Entry(master, width=3)
         self.num_3 = Entry(master, width=3)
@@ -81,6 +88,7 @@ class Lotto:
         self.num_5 = Entry(master, width=3)
         self.num_6 = Entry(master, width=3)
         confirm_btn = Button(master, text="Confirm", command=self.calc, bg="#00a66a", fg="whitesmoke", font="Calibri 13")#green
+<<<<<<< HEAD
         clear_btn = Button(master, text="Reset", command=self.clear, bg="#099eda", fg="whitesmoke", font="Calibri 13")#blue
         exit_btn = Button(master, text="Quit", command=master.destroy, bg="#ef2c43",fg="whitesmoke", font="Calibri 13")#red
 
@@ -90,6 +98,14 @@ class Lotto:
         current_time = now.strftime("%H:%M %p")
         date_time =  date+"\n"+current_time
         self.main_date_label['text']= date_time
+=======
+        clear_btn = Button(master, text="Clear", command=self.clear, bg="#099eda", fg="whitesmoke", font="Calibri 13")#blue
+        exit_btn = Button(master, text="Quit", command=master.destroy, bg="#ef2c43",fg="whitesmoke", font="Calibri 13")#red
+
+        #age holder
+        x = Label(master, text=self.age)
+        x.place(x=5,y=200)
+>>>>>>> Minor changes
 
         #tkinter placements on master
         user_input_label.place(x=0, y=152)
@@ -103,13 +119,17 @@ class Lotto:
         clear_btn.place(x=250,y=190)
         self.result_label.place(x=5,y=250)
         exit_btn.place(x=300,y=350)
+<<<<<<< HEAD
         self.main_date_label.place(x=380,y=350)
+=======
+>>>>>>> Minor changes
 
         #loop main window
         master.mainloop()
 
     #Function to do calculations
     def calc(self):
+<<<<<<< HEAD
         #Doctest Testing
         '''
         >>> Lotto.calc(self)
@@ -126,6 +146,9 @@ class Lotto:
         #try/except to catch ValueError on user entry 
         try:
             #Fetching user numbers from Entry fields
+=======
+        try:
+>>>>>>> Minor changes
             a = int(self.num_1.get())
             b = int(self.num_2.get())
             c = int(self.num_3.get())
@@ -133,6 +156,7 @@ class Lotto:
             e = int(self.num_5.get())
             f = int(self.num_6.get())
 
+<<<<<<< HEAD
             #Creating list for user entry numbers
             user_nums = sorted([a,b,c,d,e,f])
         except ValueError:
@@ -150,6 +174,17 @@ class Lotto:
         for i in user_nums:
             if i>49 or i<1:
                 mb.showerror("Range Error", "Make sure to enter only numbers between 1 and 49")
+=======
+            user_nums = sorted([a,b,c,d,e,f])
+            print(user_nums)
+        except ValueError:
+            mb.showerror("Value Error","Please only enter numbers and do not leave fields blank")
+        
+        #check for duplicates
+        user_nums = list(dict.fromkeys(user_nums))
+        if len(user_nums)<6:
+            mb.showerror("Duplicate detected","Make sure you enter 6 DIFFERENT numbers")
+>>>>>>> Minor changes
 
         #Counting correct lotto numbers
         counter=0
@@ -157,12 +192,17 @@ class Lotto:
             if i in self.win_nums:
                 counter+=1
         
+<<<<<<< HEAD
         #Dictionary for storing prizes accoriding to correct numbers
         #Displaying result on label
+=======
+        print(counter)
+>>>>>>> Minor changes
         prizes = {0:"0",1:"0",2:"20.0",3:"100.50",4:"2384.0",5:"8584.0",6:"10000000.0"}
         result = "You got "+str(counter)+" number(s) correct and have won R"+prizes[counter]
         self.result_label['text'] = result
 
+<<<<<<< HEAD
         #checking if money was won to display a gif
         if counter>1:
             #gif background
@@ -217,13 +257,19 @@ class Lotto:
         self.main_date_label['text']= date_time
 
         #Clearing various widgetsmmmmmmmmmmmmmmmmmmm,mmmm 
+=======
+    def clear(self):
+>>>>>>> Minor changes
         self.num_1.delete(0, 'end')
         self.num_2.delete(0, 'end')
         self.num_3.delete(0, 'end')
         self.num_4.delete(0, 'end')
         self.num_5.delete(0, 'end')
         self.num_6.delete(0, 'end')
+<<<<<<< HEAD
         self.result_label['text'] = ""
+=======
+>>>>>>> Minor changes
 
 #Tkinter initialization 
 root = Tk()
